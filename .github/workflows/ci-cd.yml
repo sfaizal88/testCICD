@@ -30,6 +30,7 @@ jobs:
     steps:
       - name: Run tests
         run: npm test
+        working-directory: ./testCICD
 
   build:
     runs-on: ubuntu-latest
