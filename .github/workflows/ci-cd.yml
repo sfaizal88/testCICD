@@ -6,9 +6,24 @@ on:
       - main
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      
+      - name: Install Node.js dependencies
+        run: npm install
+
   build:
     runs-on: ubuntu-latest
-
+    needs: setup
+    
     steps:
       - name: Setup
         uses: ./.github/workflows/setup.yml
@@ -24,7 +39,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: build
+    needs: setup
 
     steps:
       - name: Setup
@@ -41,7 +56,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: test
+    needs: build
 
     steps:
       - name: Checkout code
