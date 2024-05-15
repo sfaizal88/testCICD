@@ -16,7 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "coverage": "nyc react-scripts test --coverage"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +41,7 @@
     "@eslint/js": "^9.2.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
-    "globals": "^15.2.0"
+    "globals": "^15.2.0",
+    "nyc": "^15.1.0"
   }
 }
