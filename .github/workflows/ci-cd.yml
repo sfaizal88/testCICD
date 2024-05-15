@@ -26,19 +26,12 @@ jobs:
 
       - name: Test
         run: npm test
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    if: success()
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # Add deployment steps here
+      
+        # Add deployment steps here
       # Example: Deploy to Netlify
       - name: Deploy to Netlify
         run: npx netlify-cli deploy --prod --dir=./build
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+  
