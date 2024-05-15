@@ -6,25 +6,12 @@ on:
       - main
 
 jobs:
-  setup:
-    runs-on: ubuntu-latest
-    steps: &setup-steps
-      - name: Checkout code
-        uses: actions/checkout@v2
-      
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-      
-      - name: Install Node.js dependencies
-        run: npm install
-
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - *setup-steps  # This references the steps defined in &setup-steps
+      - name: Setup
+        uses: ./.github/workflows/setup.yml
 
       - name: Build the project
         run: npm run build
@@ -40,7 +27,8 @@ jobs:
     needs: build
 
     steps:
-      - *setup-steps  # This references the steps defined in &setup-steps
+      - name: Setup
+        uses: ./.github/workflows/setup.yml
 
       - name: Download build artifacts
         uses: actions/download-artifact@v3
