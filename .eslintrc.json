@@ -1,0 +1,40 @@
+{
+    "extends": "eslint:recommended",
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "ignorePatterns": [
+      "src/reportWebVitals.js"
+    ],
+    "rules": {
+      "no-prototype-builtins": "off",
+      "no-unused-vars": "off",
+      "no-undef": "off",
+      "no-cond-assign": "off",
+      "no-fallthrough": "off",
+      "no-empty": "off",
+      "no-useless-escape": "off",
+      "valid-typeof": "off",
+      "no-control-regex": "off",
+      "getter-return": "off",
+      "no-misleading-character-class": "off",
+      "no-func-assign": "off"
+    },
+    "overrides": [
+      {
+        "files": ["*.js", "*.jsx"],
+        "parserOptions": {
+          "ecmaFeatures": {
+            "jsx": true
+          }
+        }
+      }
+    ]
+  }
+  
